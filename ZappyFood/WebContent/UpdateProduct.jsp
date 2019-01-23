@@ -27,15 +27,15 @@
                                         <div class="menu">
                                             <nav>
                                                 <ul>
-                                                    <li><a href="AdminHome.jsp"><font size="5px"> Home</font> </i></a>
+                                                    <li><a href="AdminHome.jsp"><font size="2px"> Home</font> </i></a>
                                                     </li>
-                                                    <li><a href="AddProduct.jsp"><font size="5px"> Add product details </font></i></a>
+                                                    <li><a href="AddProduct.jsp"><font size="2px"> Add product details </font></i></a>
                                                     </li>
-                                                    <li><a href="viewProduct"><font size="5px"> View All Product Details </font></i></a>
+                                                    <li><a href="ViewProduct"><font size="2px"> View All Product Details </font></i></a>
                                                     </li>
-                                                    <li><a href="ViewPendingOrder"><font size="5px"> View All pending orders</font> </i></a>
+                                                    <li><a href="ViewPendingOrder"><font size="2px"> View All pending orders</font> </i></a>
                                                     </li>
-                                                    <li><a href="OrderHistory"><font size="5px"> View Order History</font> </i></a>
+                                                    <li><a href="OrderHistory"><font size="2px"> View Order History</font> </i></a>
                                                     </li>
                                                   </a>
                                                     </li>

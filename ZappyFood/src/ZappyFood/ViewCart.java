@@ -38,24 +38,51 @@ public class ViewCart extends HttpServlet {
 		MyDao m=new MyDao();
 		HttpSession session=request.getSession();
 		String user=(String)session.getAttribute("uid");
+		PrintWriter out = response.getWriter();
 		if(user==null)
 		{
 			user=request.getRemoteAddr();
-		}
-	      ArrayList<ProductBean> list= m.JoinCartBean(user);
+			ArrayList<ProductBean> list= m.JoinCartBean(user);
+	      
 	      ArrayList<ProductBean> listt= m.cartTotal(user);
 	      int count = m.cartCount(user); 
 			request.setAttribute("count", count);
-			int gtot = m.gTotal(user);
+			if(list.isEmpty()==true)
+			{
+				response.sendRedirect("index.jsp");
+			}
+			else {
+			//int gtot = m.gTotal(user);
 	      RequestDispatcher rd=request.getRequestDispatcher("ViewCart.jsp");
 	     request.setAttribute("LIST", list);
-	     request.setAttribute("gtot", gtot);
+	     //request.setAttribute("gtot", gtot);
 	     request.setAttribute("LISTT", listt);
 	      rd.forward(request, response);
 
 	}
-	
+		}
 
+		else
+		{
+			ArrayList<ProductBean> list= m.JoinCartBean(user);
+		      
+		      ArrayList<ProductBean> listt= m.cartTotal(user);
+		      int count = m.cartCount(user); 
+				request.setAttribute("count", count);
+				if(list.isEmpty()==true)
+				{
+					response.sendRedirect("viewgridcustomer");
+				}
+				else {
+				//int gtot = m.gTotal(user);
+		      RequestDispatcher rd=request.getRequestDispatcher("ViewCart.jsp");
+		     request.setAttribute("LIST", list);
+		     //request.setAttribute("gtot", gtot);
+		     request.setAttribute("LISTT", listt);
+		      rd.forward(request, response);
+		}
+		}
+	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

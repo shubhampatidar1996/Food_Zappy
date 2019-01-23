@@ -31,10 +31,7 @@
                                                 <span class="cart-icon-inner"></span>
                                                 <li><a href="index.jsp"><font size="5px"> Home</font> </i></a>
                                                     <li>
-                                                    <li><a href="Login.jsp"><font size="5px"> Login</font> </i></a>
-                                                    </li>
-                                                    <li><a href="ViewCart"><font size="5px"><i class="ion-android-cart"><b><span class="cart_count">${count}</span></span>View Cart</b></i></a>
-                                                    </li>
+                                                    
                                                     
 
                                                         </ul>    
@@ -44,8 +41,8 @@
                                     </div>
                                     <div class="header_right_info d-flex">
                                        
-                                        <li><a href="Logout.jsp"><font size="5px">Logout</font></a> </li>
-                                        </div>  
+                                        <li><a href="Login.jsp"><font size="5px"> Login</font> </i></a>
+                                                    </li>
                         </div>
                     </div>
                 </header>
@@ -59,13 +56,15 @@ ${msg}
     <h2>Sign Up</h2>
     <form action="SignUp" method="post">
     <label>Name</label>
-    <input type="text" name="name" class="span3">
+    <input type="text" name="name" class="span3" required="required">
     <label>Email ID</label>
-    <input type="email" name="emailid" class="span3">
+    <input type="email" name="emailid" class="span3" required="required">
     <label>Password</label>
-    <input type="password" name="password" class="span3">
+    <input type="password" name="password" class="span3" pattern=".{8,}" title="Must contain at least 8 or more characters">
     <label>Address</label>
-    <input type="text" name="address" class="span3">
+    <input type="text" name="address" class="span3" required="required">
+    <label>MobileNo</label>
+    <input type="text" name="mobileno" pattern="[1-9]{1}[0-9]{9}" class="span3"  required="required">
     <input type="submit" value="Sign up" class="btn btn-primary pull-left">
     <div class="clearfix"></div>
     </form>

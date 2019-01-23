@@ -158,7 +158,7 @@ function check(i)
      <input type="text" value="<%=ee.getQuantity()%>" name="qunatity" id="q<%=i %>" onKeyUp="check(<%=i%>);"/> 
     </td>
 	<td> <input  value="<%=price*ee.getQuantity()%>"  name="t" id="total<%=i%>" readonly/> </td>
-	<td> <a href="CartDelete?cartid=<%=ee.getCid()%>" class="glyphicon glyphicon-remove-sign"  onClick="return confirm('Do you really want to delete this record?')"></a> </td>
+	<td> <a href="CartDelete?cartid=<%=ee.getCid()%>" class="glyphicon glyphicon-remove-sign"  onClick="return confirm('Do you really want to delete this record?')">Delete From Cart</a> </td>
 	
 	 <tr/>
 	 <%i++;
@@ -189,7 +189,7 @@ function check(i)
 <form action="CheckOut" method="post">
 <div class="form-group">
     <label for="address">Delivery Address:</label>
-   <textarea name="daddress" class="form-control" ></textarea>
+   <textarea name="daddress" class="form-control" required="required" ></textarea>
   </div>
   <button type="submit" class="btn btn-primary">Check Out</button>
 </form>

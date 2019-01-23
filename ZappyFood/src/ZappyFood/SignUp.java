@@ -46,16 +46,16 @@ public class SignUp extends HttpServlet {
 		String Cname=request.getParameter("name");
 		String Cemailid=request.getParameter("emailid");
 		String Cpassword=request.getParameter("password");
-		String mobileno=request.getParameter("mnumber");
 		String Caddress=request.getParameter("address");
+		String mobileno=request.getParameter("mobileno");
 		
 		try {
 			ProductBean e=new ProductBean();
 			e.setName(Cname);
 			e.setEmailid(Cemailid);
 			e.setPassowrd(Cpassword);
-			e.setMobileno(mobileno);
 			e.setAddress(Caddress);
+			e.setMobileno(mobileno);
 			
 			MyDao m=new MyDao();
 			int x=m.SignupCheck(e);

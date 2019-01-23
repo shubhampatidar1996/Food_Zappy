@@ -92,31 +92,26 @@
 	}
 </style> 
 </head>
-<body background="images\background.png">
+<body background=images\background.png">
   
   <div class="login-form">
 <font color="red"> 
- ${msg}
+
 </font>
-    <form action="CustomerLogin" method="post">
-        <h2 class="text-center"><font color="#2980B9">Customer Login</font></h2>
+    <form action="ForgotPasswordServlet" method="post">
+     ${msg}
+        <h2 class="text-center"><font color="#2980B9">Forgot Password</font></h2>
         <div class="form-group">
-        	<input type="email" class="form-control" name="emailid" placeholder="email id" required="required">
-        </div>
-		<div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
-        </div>        
+        	<input type="text" class="form-control" name="email" id="eml" placeholder="Enter Your Email Id" required="required">
+        </div>  
+        <br>     
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
         </div>
         <center>
         <a class="btn btn-primary" href="Signup.jsp" role="button">SignUp</a>
          </center>
           <br>
-        <div align="center">
-					<font size="3px">
-						<a href="ForgotPassword.jsp">Forgot your password?</a>
-					</div>
     </form>
 </div>
 </font>

@@ -65,11 +65,15 @@ PrintWriter out =response.getWriter();
 					{
 					int x =	m.cartdetails(e);
 					}
+					if(y!=0)
+					{
+						int x=m.updateQuantityViaCart(e , quantity);
+					}
 					else
 			    	{
 			    	out.println("<h3>Product Not Added to your cart</h3>");
 			    	}
-				         int x=m.updateQuantityViaCart(e , quantity);
+				         
 				      //   System.out.println("true");
 				         	  int count = m.cartCount(user); 
 							request.setAttribute("count", count);

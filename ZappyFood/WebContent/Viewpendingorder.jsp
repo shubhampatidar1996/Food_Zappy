@@ -87,9 +87,9 @@
 	 <td><%=ee.getAddress()%></td>
 	 <td><%if(ee.getStatus()==0) out.println("PENDING");%></td>
 	 <td><%=ee.getDate()%> </td>
- <td> <a href="OrderDispatch?orderid=<%=ee.getOid()%>&action=1&email=<%=ee.getUser()%>" class="glyphicon glyphicon-edit" onClick="return confirm('Do you really want to Dispatch the order?')"></a> </td>
+ <td> <a href="OrderDispatch?orderid=<%=ee.getOid()%>&action=1&email=<%=ee.getUser()%>" class="glyphicon glyphicon-edit" onClick="return confirm('Do you really want to Dispatch the order?')">Order Dispatch</a> </td>
 	
-<td> <a href="OrderDispatch?orderid=<%=ee.getOid()%>&action=2&email=<%=ee.getUser()%>" class="glyphicon glyphicon-remove-sign"></a> </td>
+<td> <a href="OrderDispatch?orderid=<%=ee.getOid()%>&action=2&email=<%=ee.getUser()%>" class="glyphicon glyphicon-remove-sign">Not Available</a></td>
 	 
 	 <tr/>
 	 <%

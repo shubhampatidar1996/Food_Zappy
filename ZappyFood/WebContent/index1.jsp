@@ -126,7 +126,7 @@ ArrayList<ProductBean> list=(ArrayList<ProductBean>)request.getAttribute("LIST")
 		       <input type="hidden" name="pid"  value="<%=ee.getPid()%>"></td></tr>
 		       <tr><td><b></b>
 		       <lable>Quantity</lable>
-		       <input type="number" name="quantity" value="1"></td></tr>
+		       <input type="number" name="quantity" value="1" min="0"></td></tr>
 		       <tr><td><button type="submit" class="btn btn-primary btn-sm btn-block">Add To Cart</button></td></tr>
 		       <tr>  <td></td>  </tr>
 		       <br>

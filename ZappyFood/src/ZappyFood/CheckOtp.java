@@ -9,21 +9,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.MyDao;
 
 /**
- * Servlet implementation class CustomerLogin
+ * Servlet implementation class CheckOtp
  */
-@WebServlet("/CustomerLogin")
-public class CustomerLogin extends HttpServlet {
+@WebServlet("/CheckOtp")
+public class CheckOtp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CustomerLogin() {
+    public CheckOtp() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,27 +40,21 @@ public class CustomerLogin extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out=response.getWriter();
-		String u=request.getParameter("emailid");
-		String p=request.getParameter("password");
-		String IP=request.getRemoteAddr();
+		String otp=request.getParameter("otp");
 		MyDao m=new MyDao();
-		   int x=m.CustomerLogin(u, p);
-		   int y=m.cartUpdate(u,IP);
-		   
-		   if(x==1 || y==1)
-			{
-			   //Session code here
-				HttpSession session=request.getSession();
-				session.setAttribute("uid",u);
-				response.sendRedirect("CustomerHome.jsp");
-				
-			}
-			else {
-				RequestDispatcher rd=request.getRequestDispatcher("Clogin.jsp");
-				request.setAttribute("msg","Login failed try again...");
+		int x=m.checkOtp(otp);
+		if(x==1)
+		{
+			response.sendRedirect("PasswordChange.jsp");
+		}
+		else 
+		{
+			RequestDispatcher rd=request.getRequestDispatcher("Otp.jsp");
+				request.setAttribute("msg","<h3> Your Otp is Incorrect..</h3>");
 				rd.forward(request,response);
-				  //response.sendRedirect("index.jsp");
-			}
+		}
 		
+	
 	}
 	}
+

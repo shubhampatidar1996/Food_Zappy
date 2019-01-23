@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title></title>
+<title>index</title>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -90,34 +91,26 @@
 	.login-form form a:hover {
 		text-decoration: underline;
 	}
-</style> 
+</style>
 </head>
-<body background="images\background.png">
-  
+<body background="images\31632208.jpg">
+  ${msg}
   <div class="login-form">
 <font color="red"> 
- ${msg}
 </font>
-    <form action="CustomerLogin" method="post">
-        <h2 class="text-center"><font color="#2980B9">Customer Login</font></h2>
+    <form action="CheckOtp" method="post">
+        
+        <h2 class="text-center"><font color="#2980B9">Enter OTP</font></h2>
+           
         <div class="form-group">
-        	<input type="email" class="form-control" name="emailid" placeholder="email id" required="required">
-        </div>
-		<div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
-        </div>        
+        	<input type="text" class="form-control" name="otp" placeholder="Enter OTP" id="eml" required="required">
+        </div>       
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+            <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Submit</button>
         </div>
-        <center>
-        <a class="btn btn-primary" href="Signup.jsp" role="button">SignUp</a>
-         </center>
-          <br>
-        <div align="center">
-					<font size="3px">
-						<a href="ForgotPassword.jsp">Forgot your password?</a>
-					</div>
+		
     </form>
+    
 </div>
 </font>
 </body>

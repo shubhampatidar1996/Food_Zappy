@@ -233,8 +233,8 @@ try {
 		    ps1.setString(1,e.getName());
 		    ps1.setString(2, e.getEmailid());
 		    ps1.setString(3,e.getPassowrd());
-		    ps1.setString(4,e.getMobileno());
-		    ps1.setString(5,e.getAddress());
+		    ps1.setString(4,e.getAddress());
+		    ps1.setString(5,e.getMobileno());
 		    		    
 		    x=ps1.executeUpdate(); //it not return 0 or 1 .It return no.of rows affected.
 		    con.close();
@@ -539,7 +539,7 @@ try {
 		ProductBean e=new ProductBean();
 		try {
 			Connection con=start();
-			PreparedStatement ps=con.prepareStatement("select c.pid,p.price,c.quantity,c.user from product p , cart c WHERE user=?");
+			PreparedStatement ps=con.prepareStatement("select c.pid,p.price,c.quantity,c.user from product p , cart c WHERE c.pid=p.pid AND user=?");
 			ps.setString(1, user);
 			ResultSet rs=ps.executeQuery();
 			
@@ -662,7 +662,7 @@ try {
 				e.setPid(rs.getInt("pid"));
 				e.setQuantity(rs.getInt("quantity"));
 				e.setPrice(rs.getInt("price"));
-				e.setUser(rs.getString("emailid"));
+				e.setUser(rs.getString("user"));
 				e.setAddress(rs.getString("address"));
 				e.setStatus(rs.getInt("status"));
                e.setDate(rs.getString("datetime"));
@@ -775,5 +775,119 @@ try {
  	return list;
  		
  	}
+   
+   public String sendPassword(String userpss)
+ 	{
+ 		
+ 		
+ 		try {
+ 			
+ 			Connection con=start();			
+ 			PreparedStatement ps=con.prepareStatement("select password from customerlogin where emailid=?");
+ 			//ps.setInt(1,2);
+ 			ps.setString(1,userpss);
+ 			//System.out.println(ps);
+ 			ResultSet rs=ps.executeQuery();
+ 			if(rs.next())
+ 			{
+ 				userpss=rs.getString(1);
+ 			}
+ 	       con.close();
+ 		}catch(SQLException w)
+ 			{
+ 			  System.out.println(w);
+ 			}
+ 		
+ 		return userpss;
+ 	}
+  public int checkEmailForForgotPassword(String email)
+  {
+	   int x=0;
+  try
+  	{	
+  		   		Connection con=start();
+  		String sql = "select * from customerlogin where emailid=?";
+  		PreparedStatement ps = con.prepareStatement(sql);
+  		ps.setString(1, email);
+  		ResultSet rs = ps.executeQuery();
+  		if(rs.next())
+  		{
+  			x=1;
+  		}
+  		  	}
+  	catch(Exception e)
+  	{
+  		System.out.println(e);
+  	}
+  	
+       return x;
+  }
+  public int insertOtp(String emailid,String otp)
+	{ 
+		int x=0;
+		
+		try {
+			
+			Connection con=start();
+			PreparedStatement ps1=con.prepareStatement("update customerlogin set otp=? where emailid=?");
+			ps1.setString(1, otp);
+		    ps1.setString(2,emailid);
+		    
+		    
+		    		    
+		    x=ps1.executeUpdate(); //it not return 0 or 1 .It return no.of rows affected.
+		    con.close();
+		    }catch(Exception w)
+		{
+		    	System.out.println(w);
+		}
+		
+	return x;
+	}
+  public int checkOtp(String otp)
+  {
+	   int x=0;
+  try
+  	{	
+  		Connection con=start();
+  		String sql = "select * from customerlogin where otp=?";
+  		PreparedStatement ps = con.prepareStatement(sql);
+  		ps.setString(1, otp);
+  		ResultSet rs = ps.executeQuery();
+  		if(rs.next())
+  		{
+  			x=1;
+  		}
+  		  	}
+  	catch(Exception e)
+  	{
+  		System.out.println(e);
+  	}
+  	
+       return x;
+  }
+  public int passwordUpdate(String password,String emailid)
+ 	{ 
+ 		int x=0;
+ 		
+ 		try {
+ 			
+ 			Connection con=start();
+ 			PreparedStatement ps1=con.prepareStatement("update customerlogin set password=? where emailid=?");
+ 			ps1.setString(1, password);
+ 		    ps1.setString(2,emailid);
+ 		   
+ 		    
+ 		    		    
+ 		    x=ps1.executeUpdate(); //it not return 0 or 1 .It return no.of rows affected.
+ 		    con.close();
+ 		    }catch(Exception w)
+ 		{
+ 		    	System.out.println(w);
+ 		}
+ 		
+ 	return x;
+ 	}
+   
    
 }

@@ -3,10 +3,9 @@ package beans;
 public class ProductBean {
 String category,productname,productprice,description,filename;
 int pid,cid,price,oid,status,quantity;
-
-
 String name,emailid,password,address;
 String image,total,date;
+String user,mobileno;
 public int getPrice() {
 	return price;
 }
@@ -61,7 +60,7 @@ public void setCid(int cid) {
 	this.cid = cid;
 }
 
-String user,mobileno;
+
 
 public String getMobileno() {
 	return mobileno;

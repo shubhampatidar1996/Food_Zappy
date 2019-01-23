@@ -86,9 +86,9 @@ public class OrderDispatch extends HttpServlet {
 	   public void sendMail(String to,String sub,String msg)
 		 	{
 		 	
-		 		String from = "project.shubhamptd123@gmail.com";
-		 	    final String username =  "project.shubhamptd123@gmail.com";//change accordingly
-		 	    final String password = "";//change accordingly
+		 		String from = "shubhamzappy@gmail.com";
+		 	    final String username =  "shubhamzappy@gmail.com";//change accordingly
+		 	    final String password = "shubh@mzappy1";//change accordingly
 
 		 	    // Assuming you are sending email through relay.jangosmtp.net
 		 	    String host = "smtp.gmail.com";
